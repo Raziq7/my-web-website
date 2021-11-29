@@ -694,45 +694,62 @@
 
     <script src="assets/js/main.js"></script>
 
-   <script>
+    <script>
+      $("#submit-form").submit(function (){
+      if($(this).valid()){
+  
         $("#submit-form").submit((e)=>{
-            e.preventDefault()
-            $.ajax({
-                url:"https://script.google.com/macros/s/AKfycbxBgOwyc9auG4-zPolTwvUDhbYYGyKHae9fjlWyHydunX0vAyQGpa33qy8zn3Nlv8x1/exec",
-                data:$("#submit-form").serialize(),
-                method:"post",
-                success:function (response){
-                    alert("Form submitted successfully")
-                    window.location.reload()
-                    //window.location.href="https://google.com"
-                },
-                error:function (err){
-                    alert("Something Error")
+          e.preventDefault()
+  
+          $.ajax({
+          url:"https://script.google.com/macros/s/AKfycbxBgOwyc9auG4-zPolTwvUDhbYYGyKHae9fjlWyHydunX0vAyQGpa33qy8zn3Nlv8x1/exec",
+          data:$("#submit-form").serialize(),
+          method:"post",
+        success:function (response){
+          alert("Form submitted successfully")
+          window.location.reload()
+          //window.location.href="https://google.com"
+      },
     
-                }
-            })
+      error:function (err){
+        alert("Something Error")
+    }
+  })
+  }) 
+  $("#loading").show()};
+  });
+  
+  
+  $(document).ready(function(){
+  
+  
+  
+     $("#submit-form").validate({
+  
+           rules:{
+            name:{
+                  required:true,
+                  minlength:3,
+                 
+                  },
+                  email:{
+                    required:true,
+                    email:true
+                    }, 
+                   message:{ 
+                    required:true,
+                    minlength:40
+            }  
+           }
+           })
         })
-
-        $(document).ready(function(){
-            $("#submit-form").validate({
-                rules:{
-                    name:{
-                        required:true,
-                        maxlength:4
-                    },
-                    email:{
-                        required:true,
-                        email:true
-                    },
-                    message:{
-                        required:true,
-                        
-
-                    }
-                }
-            })
-        })
-    </script>
+  
+        $('#submitbutton').on('click', function() {
+          $("#submit-form").valid();
+      });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 
 </body>
 
