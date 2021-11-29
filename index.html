@@ -694,11 +694,11 @@
 
     <script src="assets/js/main.js"></script>
 
-    <script>
+   <script>
         $("#submit-form").submit((e)=>{
             e.preventDefault()
             $.ajax({
-                url:"https://script.google.com/macros/library/d/1Qw_1ZwZd92Lsm8-dpGJwEDOvzr3v3EVC0XdxS7af2AIw0WICXqL2oV76/2",
+                url:"https://script.google.com/macros/s/AKfycbxBgOwyc9auG4-zPolTwvUDhbYYGyKHae9fjlWyHydunX0vAyQGpa33qy8zn3Nlv8x1/exec",
                 data:$("#submit-form").serialize(),
                 method:"post",
                 success:function (response){
@@ -726,7 +726,7 @@
                     },
                     message:{
                         required:true,
-                        message:true
+                        
 
                     }
                 }
